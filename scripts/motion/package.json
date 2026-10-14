@@ -1,0 +1,13 @@
+{
+  "name": "ixean-motion-render",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic frame capture and encode for the IXEAN logo motion showcase.",
+  "scripts": {
+    "render": "node render.mjs",
+    "verify": "node verify.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.63.0"
+  }
+}

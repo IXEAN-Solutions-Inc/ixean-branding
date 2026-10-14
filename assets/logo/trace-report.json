@@ -1,0 +1,150 @@
+{
+  "clearSpaceUnit": "R = outer diameter of one mark ring, in source-PNG pixels",
+  "lockups": {
+    "mark": {
+      "source": "brandmark obsidian.png",
+      "canvas": {
+        "width": 899,
+        "height": 1316
+      },
+      "viewBox": {
+        "x": 225,
+        "y": 225,
+        "w": 449,
+        "h": 866
+      },
+      "clearSpaceR": 170,
+      "ringOuterDiameters": [
+        170,
+        170,
+        170,
+        170
+      ],
+      "farthestRadius": 459.8,
+      "fidelity": {
+        "pixels": 388834,
+        "alphaDiffering": 1295,
+        "alphaDiffPercent": 0.333,
+        "alphaOffEdge": 17,
+        "colourDiffering": 1152,
+        "colourDiffPercent": 0.296
+      }
+    },
+    "horizontal": {
+      "source": "hori-combo mark obsidian deep cyan.png",
+      "canvas": {
+        "width": 2822,
+        "height": 1440
+      },
+      "viewBox": {
+        "x": 289,
+        "y": 287,
+        "w": 2246,
+        "h": 866
+      },
+      "clearSpaceR": 170,
+      "ringOuterDiameters": [
+        170,
+        170,
+        170,
+        170
+      ],
+      "farthestRadius": 1177.7,
+      "fidelity": {
+        "pixels": 1945036,
+        "alphaDiffering": 3286,
+        "alphaDiffPercent": 0.169,
+        "alphaOffEdge": 14,
+        "colourDiffering": 2810,
+        "colourDiffPercent": 0.144
+      }
+    },
+    "horizontal-no-tagline": {
+      "source": "hori-combo mark no slogan obsidian.png",
+      "canvas": {
+        "width": 3514,
+        "height": 1604
+      },
+      "viewBox": {
+        "x": 369,
+        "y": 369,
+        "w": 2776,
+        "h": 866
+      },
+      "clearSpaceR": 170,
+      "ringOuterDiameters": [
+        170,
+        170,
+        170,
+        170
+      ],
+      "farthestRadius": 1432,
+      "fidelity": {
+        "pixels": 2404016,
+        "alphaDiffering": 2375,
+        "alphaDiffPercent": 0.099,
+        "alphaOffEdge": 14,
+        "colourDiffering": 2124,
+        "colourDiffPercent": 0.088
+      }
+    },
+    "vertical": {
+      "source": "vertical stacked obsidian deep cyan.png",
+      "canvas": {
+        "width": 1925,
+        "height": 1926
+      },
+      "viewBox": {
+        "x": 282,
+        "y": 334,
+        "w": 1362,
+        "h": 1258
+      },
+      "clearSpaceR": 139,
+      "ringOuterDiameters": [
+        139,
+        139,
+        139,
+        139
+      ],
+      "farthestRadius": 926.4,
+      "fidelity": {
+        "pixels": 1713396,
+        "alphaDiffering": 3135,
+        "alphaDiffPercent": 0.183,
+        "alphaOffEdge": 131,
+        "colourDiffering": 2526,
+        "colourDiffPercent": 0.147
+      }
+    },
+    "vertical-no-tagline": {
+      "source": "vert-stacked-no slogan obsidian.png",
+      "canvas": {
+        "width": 1802,
+        "height": 1801
+      },
+      "viewBox": {
+        "x": 242,
+        "y": 343,
+        "w": 1317,
+        "h": 1115
+      },
+      "clearSpaceR": 143,
+      "ringOuterDiameters": [
+        143,
+        143,
+        143,
+        143
+      ],
+      "farthestRadius": 862.8,
+      "fidelity": {
+        "pixels": 1468455,
+        "alphaDiffering": 1926,
+        "alphaDiffPercent": 0.131,
+        "alphaOffEdge": 28,
+        "colourDiffering": 1591,
+        "colourDiffPercent": 0.108
+      }
+    }
+  }
+}

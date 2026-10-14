@@ -1,0 +1,17 @@
+{
+  "name": "ixean-static-assets",
+  "private": true,
+  "type": "module",
+  "description": "Builds the static IXEAN brand assets from the PNG masters",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "playwright": "1.63.0",
+    "potrace": "2.1.8",
+    "svgo": "4.1.0"
+  }
+}

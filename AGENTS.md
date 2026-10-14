@@ -1,12 +1,14 @@
 # AGENTS.md
 
-IXEAN logo source files and a single-file animated logo showcase. Read `README.md` first for the colour table, the file list, and the deploy command.
+IXEAN logo masters, a single-file animated logo showcase, and the generated brand assets built from both. Read `README.md` first for the colour table and the file layout, then `docs/asset-requirements.md` for what is done and what is open.
 
 ## Scope
 
 - `*.png` and `IXEAN LOGOTYPES.psd` are the brand masters. Treat them as read-only. Never re-export, resize, recolour, or overwrite them.
 - `motion/ixean-logo-motion.html` is the showcase and the only file normally edited. It is the source of truth: no template or generator for it is kept in the repo.
-- `motion/ixean-paths.json` holds the traced vector paths. Change it only when the logo artwork itself changes (see "Regenerating the paths" in `README.md`).
+- `motion/ixean-paths.json` holds the traced vector paths. Change it only when the logo artwork itself changes (see "Regenerating the paths" in `docs/motion-showcase.md`).
+- `assets/**` is generated. Never edit a generated file by hand: change the script under `scripts/` and rebuild (see `scripts/README.md`). Each build script deletes only its own temp folders; never `rm -rf` a shared folder such as `assets/` or `assets/motion/`.
+- `dist/` is gitignored and holds the release-only video masters. Publish them with `docs/releasing.md`.
 
 This folder is the public repository https://github.com/IXEAN-Solutions-Inc/ixean-branding. The PSD is stored with Git LFS. Commit before a large rewrite.
 
@@ -47,7 +49,7 @@ Report what was checked by eye and what was measured. Do not call a frame "pixel
 
 ## Deploying
 
-Deploy only when asked. The live site is public at https://ixean-logo-motion.pages.dev (Cloudflare Pages project `ixean-logo-motion`), and every deploy is visible immediately. Use the command in `README.md`. It renames the HTML to `index.html` and adds the `X-Robots-Tag: noindex` header, and both steps are required.
+Deploy only when asked. The live site is public at https://ixean-logo-motion.pages.dev (Cloudflare Pages project `ixean-logo-motion`), and every deploy is visible immediately. Use the command in `docs/deploying.md`. It renames the HTML to `index.html` and adds the `X-Robots-Tag: noindex` header, and both steps are required.
 
 Read the API token and account ID from environment variables. Never write either into a file, a command saved to disk, or chat output. If a token turns up in a file or a log, tell the user so they can revoke and replace it.
 
