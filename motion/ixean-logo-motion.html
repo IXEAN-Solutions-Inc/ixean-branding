@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="en" data-theme="dark" data-logo="color">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IXEAN Logo Motion</title>
+<meta name="description" content="Motion system for the IXEAN logo: presentation intros, website interactions and loaders, in dark and light, colour and mono.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2253 259 914 914%22%3E%3Crect x=%2253%22 y=%22259%22 width=%22914%22 height=%22914%22 rx=%22180%22 fill=%22%23121212%22/%3E%3Cg transform=%22translate%28512 716%29 scale%28.82%29 translate%28-510 -716%29%22%3E%3Cpath d=%22M 365.5 288.1 C 332.3 293, 304.7 317.3, 295.4 350 C 292.5 360, 292.7 383.8, 295.7 394.2 C 303.1 419.5, 316.8 435.5, 343.2 449.4 L 347.2 451.5 347.1 534.2 L 347 617 382.3 671.2 C 401.8 701.1, 418 726.1, 418.4 726.8 C 419 727.7, 417.9 729.6, 415.3 732.3 C 413.1 734.6, 396.2 753.9, 377.6 775.2 L 344 813.9 344 896.7 L 344 979.5 334.7 984.2 C 272.8 1015.9, 275 1106.3, 338.3 1135.5 C 392.6 1160.6, 454.9 1122.7, 457.7 1062.9 C 459.3 1028.8, 442 999, 411.4 983.3 L 404 979.5 404 907.8 L 404 836.1 441.7 792.8 C 462.4 769, 482 746.5, 485.3 742.8 L 491.3 736 530.9 736 L 570.5 736 596.7 776.3 L 623 816.5 623 902.2 L 623 987.9 614.3 992.4 C 566.7 1017, 553.5 1077.7, 586.6 1119.9 C 614.4 1155.5, 668 1162.2, 703.8 1134.6 C 737.8 1108.5, 747 1061.7, 725.3 1024.5 C 717.4 1010.7, 698.7 994.3, 686.3 989.9 L 683 988.8 683 893.9 L 683 799 645 740.9 L 607 682.8 642.9 646.1 C 662.6 626, 679.7 608.6, 680.9 607.6 L 683 605.7 683 532.4 L 683 459.2 686.3 458.1 C 697.6 454.1, 714.5 440, 722.9 427.5 C 746 392.9, 740.2 345.9, 709.2 317.9 C 655.1 269, 568.6 307.5, 568.7 380.5 C 568.8 414.3, 585.8 441.6, 616 456.6 L 623 460 623 520.6 L 623 581.2 576.3 628.6 L 529.6 676 493.1 675.8 L 456.5 675.5 431.8 637.5 L 407 599.6 407 525.3 L 407 451 412.3 448.6 C 452.9 430.6, 472.1 382.2, 455.3 340.2 C 441.1 304.6, 403.2 282.6, 365.5 288.1 M 362.3 313.5 C 337.6 320.2, 318.9 342.9, 317.3 368 C 315.2 402.2, 343 432, 377 432 C 403.9 432, 428.8 412.3, 435.7 385.7 C 437.9 377.1, 437 360.8, 434 352.1 C 423.9 323.4, 391.1 305.8, 362.3 313.5 M 645.5 321 C 626.8 323.1, 608.4 335.8, 599.7 352.6 C 578.9 392.7, 607.6 440.5, 652.5 440.4 C 696.5 440.3, 725.8 394.9, 707.2 355.6 C 695.8 331.6, 671.5 318, 645.5 321 M 358.5 1000.5 C 337.9 1006.2, 320.8 1023.4, 315.5 1044 C 313.2 1052.8, 313.9 1070, 316.9 1078.3 C 333.7 1125.4, 396.1 1133.3, 423.6 1091.9 C 450.2 1051.8, 421.3 998.6, 373 999.1 C 367.8 999.1, 361.3 999.8, 358.5 1000.5 M 642.3 1008.1 C 614.5 1012.7, 593 1038.3, 593 1066.5 C 593 1120.8, 656.9 1148, 694.8 1109.9 C 736.1 1068.4, 700 998.5, 642.3 1008.1%22 fill-rule=%22evenodd%22 fill=%22%23F4F6F8%22/%3E%3C/g%3E%3C/svg%3E">
+<script>
+  (function () {
+    var root = document.documentElement;
+    var theme = null, logo = null;
+    try { theme = localStorage.getItem("ixean-theme"); logo = localStorage.getItem("ixean-logo"); } catch (e) { /* Storage blocked: fall back to system defaults. */ }
+    var prefersLight = window.matchMedia("(prefers-color-scheme: light)").matches;
+    root.dataset.theme = theme === "light" || theme === "dark" ? theme : (prefersLight ? "light" : "dark");
+    root.dataset.logo = logo === "mono" ? "mono" : "color";
+  })();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+<style>
+  :root {
+    --obsidian: #121212;
+    --white: #F4F6F8;
+    --cyan: #00CFEF;
+    --deep: #1B5F6F;
+    --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+    --sans: "IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+    --pad: clamp(16px, 4vw, 56px);
+  }
+  /* Page theme + logo scope. Loader panels and the hero mock pin their own theme; the logo toggle still applies.
+     --lf logo fill, --la logo accent, --lc packet core, --lp pulse on a solid mark, --le fill edge, --gk glow strength. */
+  :root[data-theme="dark"], .lp.dark {
+    --bg: #121212; --surface: #161616; --surface-2: #1A1A1A;
+    --text: #F4F6F8; --muted: rgba(244, 246, 248, 0.74); --faint: rgba(244, 246, 248, 0.56);
+    --line: rgba(244, 246, 248, 0.09); --line-strong: rgba(244, 246, 248, 0.2);
+    --ui-accent: #00CFEF; --ui-accent-rgb: 0, 207, 239;
+    --lf: #F4F6F8; --la: #00CFEF; --lc: #FFFFFF; --lp: #00CFEF; --le: #F4F6F8; --gk: 1;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"], .lp.light, .stage.hero {
+    --bg: #F4F6F8; --surface: #FFFFFF; --surface-2: #EBEEF1;
+    --text: #121212; --muted: rgba(18, 18, 18, 0.74); --faint: rgba(18, 18, 18, 0.62);
+    --line: rgba(18, 18, 18, 0.1); --line-strong: rgba(18, 18, 18, 0.22);
+    --ui-accent: #1B5F6F; --ui-accent-rgb: 27, 95, 111;
+    --lf: #121212; --la: #1B5F6F; --lc: #1B5F6F; --lp: #1B5F6F; --le: #00CFEF; --gk: 1;
+    color-scheme: light;
+  }
+  :root[data-theme="dark"][data-logo="mono"], :root[data-logo="mono"] .lp.dark {
+    --la: #F4F6F8; --lc: #F4F6F8; --lp: #121212; --le: rgba(18, 18, 18, 0.7); --gk: 0.45;
+  }
+  :root[data-theme="light"][data-logo="mono"], :root[data-logo="mono"] .lp.light, :root[data-logo="mono"] .stage.hero {
+    --la: #121212; --lc: #121212; --lp: #F4F6F8; --le: rgba(244, 246, 248, 0.8); --gk: 0.35;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0; color: var(--text); background: var(--bg);
+    font: 400 15px/1.55 var(--sans); -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--pad); }
+  .mono { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+
+  /* ---------- control bar ---------- */
+  .controlbar { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .controlbar .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; min-height: 52px; padding-top: 6px; padding-bottom: 6px; }
+  .controlbar .brand { color: var(--faint); }
+  .controlbar .opts { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+  .opt { display: flex; align-items: center; gap: 10px; }
+  .opt > span { color: var(--faint); font-size: 10px; }
+  .seg { display: inline-flex; border: 1px solid var(--line-strong); }
+  .seg button {
+    font: 500 10px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); background: transparent; border: 0; padding: 0 12px; min-height: 32px; min-width: 44px; cursor: pointer;
+    transition: background-color 160ms cubic-bezier(0.16, 1, 0.3, 1), color 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .seg button + button { border-left: 1px solid var(--line-strong); }
+  .seg button:hover { color: var(--text); }
+  .seg button[aria-pressed="true"] { background: var(--text); color: var(--bg); }
+  .seg button:focus-visible { outline: 1px solid var(--ui-accent); outline-offset: 2px; position: relative; }
+
+  /* ---------- page header ---------- */
+  .page-head { padding-top: clamp(48px, 9vw, 112px); padding-bottom: clamp(40px, 6vw, 72px); border-bottom: 1px solid var(--line); }
+  .page-head .eyebrow { color: var(--ui-accent); margin: 0 0 28px; }
+  .page-head h1 { font-weight: 400; font-size: clamp(34px, 6vw, 64px); line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 24px; }
+  .page-head .lede { max-width: 58ch; color: var(--muted); margin: 0; font-size: 16px; }
+  .spec { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; margin-top: 48px; background: var(--line); border: 1px solid var(--line); }
+  .spec > div { background: var(--bg); padding: 16px 18px; min-width: 0; }
+  .spec dt { color: var(--faint); margin-bottom: 8px; }
+  .spec dd { margin: 0; font-family: var(--mono); font-size: 12px; color: var(--text); display: flex; align-items: center; gap: 10px; overflow-wrap: anywhere; }
+  .sw { width: 12px; height: 12px; flex: none; border: 1px solid var(--line-strong); }
+
+  /* ---------- sections ---------- */
+  section { padding: clamp(56px, 8vw, 104px) 0 0; }
+  .sec-head { display: flex; align-items: baseline; gap: 20px; margin-bottom: 32px; }
+  .sec-head .num { color: var(--ui-accent); }
+  .sec-head h2 { margin: 0; font-weight: 400; font-size: clamp(22px, 3vw, 30px); letter-spacing: -0.01em; }
+  .sec-head .rule { flex: 1; height: 1px; background: var(--line); align-self: center; }
+  .grid { display: grid; gap: clamp(16px, 2.4vw, 28px); }
+  .grid.two { grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); }
+
+  /* ---------- cards ---------- */
+  .card { background: var(--surface); border: 1px solid var(--line); min-width: 0; }
+  .stage { position: relative; aspect-ratio: 16 / 9; background: var(--bg); color: var(--text); overflow: hidden; border-bottom: 1px solid var(--line); }
+  .stage .host { position: absolute; inset: 0; }
+  .stage svg.art { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .stage:fullscreen { aspect-ratio: auto; width: 100vw; height: 100vh; border: 0; }
+  .stage-meta { position: absolute; top: 14px; left: 16px; right: 16px; display: flex; justify-content: space-between; color: var(--faint); font-size: 10px; pointer-events: none; z-index: 2; }
+  .progress { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--la); opacity: 0.55; transform-origin: 0 50%; transform: scaleX(0); z-index: 2; }
+  .card-foot { display: flex; flex-wrap: wrap; gap: 16px 24px; justify-content: space-between; align-items: flex-end; padding: 20px clamp(16px, 2vw, 24px) 22px; }
+  .card-foot .meta { min-width: 0; flex: 1 1 280px; }
+  .card-foot .label { color: var(--faint); margin: 0 0 8px; }
+  .card-foot h3 { margin: 0 0 6px; font-weight: 500; font-size: 18px; letter-spacing: -0.005em; }
+  .card-foot p.desc { margin: 0; color: var(--muted); font-size: 14px; max-width: 64ch; }
+  .controls { display: flex; gap: 8px; flex-wrap: wrap; }
+  button.ctl {
+    font: 500 11px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text); background: transparent; border: 1px solid var(--line-strong);
+    padding: 11px 14px; min-height: 40px; cursor: pointer;
+    transition: border-color 160ms cubic-bezier(0.16, 1, 0.3, 1), color 160ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  button.ctl:hover { border-color: var(--ui-accent); color: var(--ui-accent); }
+  button.ctl:focus-visible, a:focus-visible { outline: 1px solid var(--ui-accent); outline-offset: 3px; }
+  button.ctl:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  svg .ping, svg .bloom, svg .rotor { transform-box: fill-box; transform-origin: center; }
+  svg .glow { opacity: var(--gk); }
+
+  /* ---------- section transition ---------- */
+  .tr-before, .tr-panel { position: absolute; inset: 0; display: grid; place-items: center; }
+  .tr-before span { color: var(--faint); }
+  .tr-panel { background: var(--surface-2); clip-path: inset(0 100% 0 0); overflow: hidden; }
+  .tr-panel svg { position: absolute; height: 150%; width: auto; right: -6%; top: -25%; }
+  .tr-title { position: relative; text-align: center; }
+  .tr-title .mono { color: var(--ui-accent); display: block; margin-bottom: 10px; }
+  .tr-title b { font-weight: 400; font-size: clamp(22px, 4vw, 40px); letter-spacing: -0.01em; }
+  .tr-scanwrap { position: absolute; inset: 0; pointer-events: none; transform: translateX(-2%); }
+  .tr-scan { position: absolute; top: 0; bottom: 0; left: 0; width: 2px; background: var(--la); box-shadow: 0 0 18px 2px color-mix(in srgb, var(--la) 55%, transparent), 0 0 60px 6px color-mix(in srgb, var(--la) 18%, transparent); opacity: 0; }
+
+  /* ---------- website: nav mock ---------- */
+  .site { background: var(--bg); border-bottom: 1px solid var(--line); padding: clamp(20px, 4vw, 48px); }
+  .navmock { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; padding: 0 20px; border: 1px solid var(--line); background: var(--surface); }
+  .nav-logo { display: inline-flex; align-items: center; height: 44px; padding: 6px 4px; color: inherit; }
+  .nav-logo svg { height: 30px; width: auto; display: block; overflow: visible; }
+  .navmock ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; color: var(--muted); font-size: 14px; }
+  .nav-cta { font: 500 11px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--line-strong); padding: 11px 14px; }
+  .site-note { margin-top: 20px; color: var(--faint); }
+  @media (max-width: 720px) { .navmock ul { display: none; } }
+
+  /* ---------- website: light hero ---------- */
+  .hero-chrome { position: absolute; top: 0; left: 0; right: 0; display: flex; justify-content: space-between; padding: 16px 20px; color: var(--faint); z-index: 2; font-size: 10px; }
+  .hero-cta { position: absolute; left: 0; right: 0; bottom: 9%; display: flex; justify-content: center; gap: 10px; z-index: 2; opacity: 0; }
+  .btn-mock { font: 500 10px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; padding: 10px 14px; border: 1px solid var(--line-strong); color: var(--text); }
+  .btn-mock.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+  @media (max-width: 520px) { .hero-chrome .links, .hero-cta { display: none; } }
+
+  /* ---------- website: scroll assembly ---------- */
+  .scrolly { position: relative; height: 260vh; border-bottom: 1px solid var(--line); }
+  .scrolly-sticky { position: sticky; top: 0; height: 100vh; display: grid; place-items: center; padding: 24px 0; }
+  .scrolly-frame { position: relative; width: min(78vh, 100%); aspect-ratio: 1; max-height: 86vh; background: var(--bg); border: 1px solid var(--line); }
+  .scrolly-frame svg { position: absolute; inset: 12%; width: 76%; height: 76%; overflow: visible; }
+  .scrolly-read { position: absolute; left: 16px; right: 16px; bottom: 14px; display: flex; justify-content: space-between; color: var(--faint); font-size: 10px; }
+  .scrolly-read b { color: var(--ui-accent); font-weight: 500; }
+  .scrolly-bar { position: absolute; left: 0; right: 0; top: 0; height: 1px; background: var(--la); transform-origin: 0 50%; transform: scaleX(0); opacity: 0.6; }
+
+  /* ---------- loaders ---------- */
+  .loader-panels { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+  .lp { display: flex; align-items: center; justify-content: center; gap: clamp(20px, 5vw, 48px); padding: 40px 12px 34px; position: relative; min-width: 0; background: var(--bg); }
+  .lp .tag { position: absolute; top: 12px; left: 14px; font-size: 10px; color: var(--faint); }
+  .tile { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .tile svg { display: block; overflow: visible; }
+  .tile.s96 svg { height: 96px; width: 56px; }
+  .tile.s40 svg { height: 40px; width: 24px; }
+  .tile .pct { font: 500 10px/1 var(--mono); letter-spacing: 0.1em; color: var(--muted); min-width: 4ch; text-align: center; font-variant-numeric: tabular-nums; }
+  .tile .sz { font: 400 9px/1 var(--mono); letter-spacing: 0.14em; color: var(--faint); }
+
+  footer { margin-top: clamp(64px, 10vw, 120px); padding-top: 28px; padding-bottom: 48px; border-top: 1px solid var(--line); color: var(--faint); display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; }
+</style>
+</head>
+<body>
+<div class="controlbar">
+  <div class="wrap">
+    <span class="mono brand">IXEAN Logo Motion</span>
+    <div class="opts">
+      <div class="opt"><span class="mono" id="lbl-theme">Theme</span><div class="seg" role="group" aria-labelledby="lbl-theme"><button type="button" data-set-theme="dark" aria-pressed="false">Dark</button><button type="button" data-set-theme="light" aria-pressed="false">Light</button></div></div>
+      <div class="opt"><span class="mono" id="lbl-logo">Logo</span><div class="seg" role="group" aria-labelledby="lbl-logo"><button type="button" data-set-logo="color" aria-pressed="false">Color</button><button type="button" data-set-logo="mono" aria-pressed="false">Mono</button></div></div>
+    </div>
+  </div>
+</div>
+<header class="wrap page-head">
+  <p class="mono eyebrow">IXEAN &middot; Brand motion</p>
+  <h1>Logo motion system</h1>
+  <p class="lede">Presentation intros, website interactions and loaders for the IXEAN mark. Each sequence is built from the master vector paths, and every one resolves on the exact brand lockup. The mark is read as a circuit: four rotor nodes, four traces and a single bus, so motion travels the way a signal would.</p>
+  <dl class="spec">
+    <div><dt class="mono">Obsidian</dt><dd><span class="sw" style="background:#121212"></span>#121212</dd></div>
+    <div><dt class="mono">White</dt><dd><span class="sw" style="background:#F4F6F8"></span>#F4F6F8</dd></div>
+    <div><dt class="mono">Electric cyan</dt><dd><span class="sw" style="background:#00CFEF"></span>#00CFEF</dd></div>
+    <div><dt class="mono">Deep cyan</dt><dd><span class="sw" style="background:#1B5F6F"></span>#1B5F6F</dd></div>
+    <div><dt class="mono">Arrive</dt><dd>expo-out 0.19, 1, 0.22, 1</dd></div>
+    <div><dt class="mono">Reveal</dt><dd>quint-out 0.22, 1, 0.36, 1</dd></div>
+  </dl>
+</header>
+
+<main class="wrap">
+  <section id="presentation" aria-labelledby="h-pres">
+    <div class="sec-head"><span class="mono num">01</span><h2 id="h-pres">Presentation</h2><span class="rule"></span></div>
+    <div class="grid">
+      <article class="card" data-stage="ignition">
+        <div class="stage" data-fs>
+          <div class="host"></div>
+          <div class="stage-meta mono"><span>IXN-P1 &middot; Ignition</span><span>4.5 s</span></div>
+          <div class="progress"></div>
+        </div>
+        <div class="card-foot">
+          <div class="meta">
+            <p class="mono label">Intro &middot; 16:9 &middot; 4.5 s + idle</p>
+            <h3>Ignition</h3>
+            <p class="desc">Nodes power up, traces etch toward the bus and the four signals meet in a bloom. The wordmark scans in behind a cyan edge and the tagline decodes. A telemetry pulse then runs the circuit every four seconds.</p>
+          </div>
+          <div class="controls"><button class="ctl" type="button" data-replay>Replay</button><button class="ctl" type="button" data-fullscreen>Fullscreen</button></div>
+        </div>
+      </article>
+
+      <article class="card" data-stage="formation">
+        <div class="stage" data-fs>
+          <div class="host"></div>
+          <div class="stage-meta mono"><span>IXN-P2 &middot; Formation</span><span>3.6 s</span></div>
+          <div class="progress"></div>
+        </div>
+        <div class="card-foot">
+          <div class="meta">
+            <p class="mono label">Intro &middot; vertical lockup &middot; 3.6 s</p>
+            <h3>Formation</h3>
+            <p class="desc">Four nodes fly in from the frame corners like a quad converging on station, rotors spinning down as each one lands. The traces connect them, then the wordmark and tagline settle underneath.</p>
+          </div>
+          <div class="controls"><button class="ctl" type="button" data-replay>Replay</button><button class="ctl" type="button" data-fullscreen>Fullscreen</button></div>
+        </div>
+      </article>
+
+      <div class="grid two">
+        <article class="card" data-stage="dispersal">
+          <div class="stage" data-fs>
+            <div class="host"></div>
+            <div class="stage-meta mono"><span>IXN-P3 &middot; Dispersal</span><span>3.4 s</span></div>
+            <div class="progress"></div>
+          </div>
+          <div class="card-foot">
+            <div class="meta">
+              <p class="mono label">Outro &middot; end card &middot; 3.4 s</p>
+              <h3>Dispersal</h3>
+              <p class="desc">The lockup holds, then the nodes lift off toward the corners and leave cyan flight trails. The traces cool and fade, and the frame returns to obsidian.</p>
+            </div>
+            <div class="controls"><button class="ctl" type="button" data-replay>Replay</button><button class="ctl" type="button" data-fullscreen>Fullscreen</button></div>
+          </div>
+        </article>
+
+        <article class="card" data-stage="transition">
+          <div class="stage" data-fs>
+            <div class="host"></div>
+            <div class="stage-meta mono"><span>IXN-P4 &middot; Transition</span><span>1.8 s</span></div>
+            <div class="progress"></div>
+          </div>
+          <div class="card-foot">
+            <div class="meta">
+              <p class="mono label">Section change &middot; 1.8 s</p>
+              <h3>Scanline wipe</h3>
+              <p class="desc">A cyan scanline sweeps the frame and reveals the next section, with the brandmark as a watermark behind the title.</p>
+            </div>
+            <div class="controls"><button class="ctl" type="button" data-replay>Replay</button><button class="ctl" type="button" data-fullscreen>Fullscreen</button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="website" aria-labelledby="h-web">
+    <div class="sec-head"><span class="mono num">02</span><h2 id="h-web">Website</h2><span class="rule"></span></div>
+    <div class="grid">
+      <article class="card">
+        <div class="site">
+          <nav class="navmock" aria-label="Example site navigation">
+            <a class="nav-logo" href="#website" aria-label="IXEAN home"></a>
+            <ul><li>Platforms</li><li>Research</li><li>Company</li></ul>
+            <span class="nav-cta">Contact</span>
+          </nav>
+          <p class="mono site-note">Hover or focus the logo</p>
+        </div>
+        <div class="card-foot">
+          <div class="meta">
+            <p class="mono label">Interaction &middot; hover + focus</p>
+            <h3>Nav lockup</h3>
+            <p class="desc">On hover a signal runs both paths of the circuit once and the nodes pick up counter-rotating rotor arcs. Leaving the logo spins the rotors down in 220 ms.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-stage="hero">
+        <div class="stage light hero">
+          <div class="hero-chrome mono"><span>ixean.tech</span><span class="links">Platforms &nbsp; Research &nbsp; Company</span></div>
+          <div class="host"></div>
+          <div class="hero-cta"><span class="btn-mock primary">Contact</span><span class="btn-mock">Platforms</span></div>
+          <div class="progress"></div>
+        </div>
+        <div class="card-foot">
+          <div class="meta">
+            <p class="mono label">Hero &middot; light theme &middot; 4.5 s</p>
+            <h3>Light hero</h3>
+            <p class="desc">The Ignition sequence adapted for white: the mark settles in obsidian and the accents move to deep cyan, so the colour still passes contrast on a light page.</p>
+          </div>
+          <div class="controls"><button class="ctl" type="button" data-replay>Replay</button></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-foot">
+          <div class="meta">
+            <p class="mono label">Scroll-linked &middot; sticky</p>
+            <h3>Scroll assembly</h3>
+            <p class="desc">Scroll through the block below. Scroll progress drives the assembly timeline directly, so the mark builds forward and backward with the page.</p>
+          </div>
+        </div>
+        <div class="scrolly" id="scrolly">
+          <div class="scrolly-sticky">
+            <div class="scrolly-frame">
+              <div class="scrolly-bar"></div>
+              <div class="scrolly-read mono"><span>Assembly</span><b>0%</b></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="loaders" aria-labelledby="h-load">
+    <div class="sec-head"><span class="mono num">03</span><h2 id="h-load">Loaders</h2><span class="rule"></span></div>
+    <div class="grid two">
+      <article class="card" data-loader="circuit">
+        <div class="loader-panels"></div>
+        <div class="card-foot"><div class="meta"><p class="mono label">L1 &middot; indeterminate &middot; 2.4 s loop</p><h3>Circuit loop</h3><p class="desc">A packet travels node to node across the bus, then returns on the opposite diagonal.</p></div></div>
+      </article>
+      <article class="card" data-loader="rotor">
+        <div class="loader-panels"></div>
+        <div class="card-foot"><div class="meta"><p class="mono label">L2 &middot; indeterminate &middot; 1.2 s loop</p><h3>Rotor spin</h3><p class="desc">Each node carries two rotor arcs. Diagonal pairs counter-rotate, as on a real quadcopter.</p></div></div>
+      </article>
+      <article class="card" data-loader="handshake">
+        <div class="loader-panels"></div>
+        <div class="card-foot"><div class="meta"><p class="mono label">L3 &middot; indeterminate &middot; 3 s loop</p><h3>Handshake</h3><p class="desc">The nodes check in clockwise with a ping, then the traces link up to the bus.</p></div></div>
+      </article>
+      <article class="card" data-loader="progress">
+        <div class="loader-panels"></div>
+        <div class="card-foot"><div class="meta"><p class="mono label">L4 &middot; determinate &middot; demo loop</p><h3>Fill</h3><p class="desc">The mark fills bottom to top with a bright leading edge. The demo loops from 0 to 100%.</p></div></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap mono">
+  <span>IXEAN &middot; Autonomous Systems</span>
+  <span>Honours prefers-reduced-motion</span>
+</footer>
+
+<script>
+"use strict";
+const PATHS = {"viewBox":"0 0 2822 1440","mark":{"d":"M 365.5 288.1 C 332.3 293, 304.7 317.3, 295.4 350 C 292.5 360, 292.7 383.8, 295.7 394.2 C 303.1 419.5, 316.8 435.5, 343.2 449.4 L 347.2 451.5 347.1 534.2 L 347 617 382.3 671.2 C 401.8 701.1, 418 726.1, 418.4 726.8 C 419 727.7, 417.9 729.6, 415.3 732.3 C 413.1 734.6, 396.2 753.9, 377.6 775.2 L 344 813.9 344 896.7 L 344 979.5 334.7 984.2 C 272.8 1015.9, 275 1106.3, 338.3 1135.5 C 392.6 1160.6, 454.9 1122.7, 457.7 1062.9 C 459.3 1028.8, 442 999, 411.4 983.3 L 404 979.5 404 907.8 L 404 836.1 441.7 792.8 C 462.4 769, 482 746.5, 485.3 742.8 L 491.3 736 530.9 736 L 570.5 736 596.7 776.3 L 623 816.5 623 902.2 L 623 987.9 614.3 992.4 C 566.7 1017, 553.5 1077.7, 586.6 1119.9 C 614.4 1155.5, 668 1162.2, 703.8 1134.6 C 737.8 1108.5, 747 1061.7, 725.3 1024.5 C 717.4 1010.7, 698.7 994.3, 686.3 989.9 L 683 988.8 683 893.9 L 683 799 645 740.9 L 607 682.8 642.9 646.1 C 662.6 626, 679.7 608.6, 680.9 607.6 L 683 605.7 683 532.4 L 683 459.2 686.3 458.1 C 697.6 454.1, 714.5 440, 722.9 427.5 C 746 392.9, 740.2 345.9, 709.2 317.9 C 655.1 269, 568.6 307.5, 568.7 380.5 C 568.8 414.3, 585.8 441.6, 616 456.6 L 623 460 623 520.6 L 623 581.2 576.3 628.6 L 529.6 676 493.1 675.8 L 456.5 675.5 431.8 637.5 L 407 599.6 407 525.3 L 407 451 412.3 448.6 C 452.9 430.6, 472.1 382.2, 455.3 340.2 C 441.1 304.6, 403.2 282.6, 365.5 288.1 M 362.3 313.5 C 337.6 320.2, 318.9 342.9, 317.3 368 C 315.2 402.2, 343 432, 377 432 C 403.9 432, 428.8 412.3, 435.7 385.7 C 437.9 377.1, 437 360.8, 434 352.1 C 423.9 323.4, 391.1 305.8, 362.3 313.5 M 645.5 321 C 626.8 323.1, 608.4 335.8, 599.7 352.6 C 578.9 392.7, 607.6 440.5, 652.5 440.4 C 696.5 440.3, 725.8 394.9, 707.2 355.6 C 695.8 331.6, 671.5 318, 645.5 321 M 358.5 1000.5 C 337.9 1006.2, 320.8 1023.4, 315.5 1044 C 313.2 1052.8, 313.9 1070, 316.9 1078.3 C 333.7 1125.4, 396.1 1133.3, 423.6 1091.9 C 450.2 1051.8, 421.3 998.6, 373 999.1 C 367.8 999.1, 361.3 999.8, 358.5 1000.5 M 642.3 1008.1 C 614.5 1012.7, 593 1038.3, 593 1066.5 C 593 1120.8, 656.9 1148, 694.8 1109.9 C 736.1 1068.4, 700 998.5, 642.3 1008.1","bbox":[272.8,269,747,1162.2]},"letters":[{"d":"M 970.5 508.2 C 970.2 508.9, 970.1 579.9, 970.2 666 L 970.5 822.5 993.5 822.5 L 1016.5 822.5 1016.5 665 L 1016.5 507.5 993.7 507.2 C 976 507, 970.8 507.2, 970.5 508.2","bbox":[970.1,507,1016.5,822.5]},{"d":"M 1132 507.5 C 1132 507.7, 1138 516.2, 1145.3 526.2 C 1152.6 536.3, 1177 569.9, 1199.5 601 C 1221.9 632.1, 1241.6 659.1, 1243.2 661.2 L 1246 664.8 1191.9 739.7 C 1162.1 780.8, 1136.4 816.1, 1134.9 818.1 C 1133.3 820.1, 1132 822.1, 1132 822.4 C 1132 822.8, 1144.7 822.9, 1160.2 822.8 L 1188.5 822.5 1231.3 763 C 1254.9 730.3, 1274.4 703.4, 1274.8 703.3 C 1275.2 703.2, 1294.8 730.1, 1318.4 763.1 L 1361.2 823 1389.1 823 C 1404.5 823, 1417 822.8, 1417 822.5 C 1417 822.3, 1395.8 792.7, 1369.8 756.8 C 1303.2 664.5, 1303.9 665.6, 1304.4 664.4 C 1304.6 663.8, 1330.1 628.4, 1360.9 585.7 C 1391.8 543, 1417 507.8, 1417 507.5 C 1417 507.2, 1404.5 507, 1389.2 507 L 1361.3 507 1319.1 565.8 C 1295.8 598.1, 1276.4 625.2, 1276 626 C 1275.2 627.3, 1274.9 627.2, 1273.6 625.5 C 1272.8 624.4, 1253.3 597.4, 1230.3 565.5 L 1188.4 507.5 1160.2 507.2 C 1144.7 507.1, 1132 507.2, 1132 507.5","bbox":[1132,507,1417,823]},{"d":"M 1532.5 508.2 C 1532.2 508.9, 1532.1 579.9, 1532.2 666 L 1532.5 822.5 1654.5 822.5 L 1776.5 822.5 1776.8 799.3 L 1777 776 1678 776 L 1579 776 1579 664.5 L 1579 553 1678 553 L 1777 553 1776.8 530.3 L 1776.5 507.5 1654.7 507.2 C 1557.8 507, 1532.8 507.2, 1532.5 508.2 M 1606 659 L 1606 682 1691.3 681.8 L 1776.5 681.5 1776.8 658.8 L 1777 636 1691.5 636 L 1606 636 1606 659","bbox":[1532.1,507,1777,822.5]},{"d":"M 2003.9 509.8 C 2003.3 511.3, 1992.9 540.2, 1980.8 574 C 1968.7 607.8, 1957.1 640.2, 1955 646 C 1914.7 758.2, 1892.6 819.8, 1892.2 821.3 L 1891.8 823 1916.4 822.8 L 1941.1 822.5 1987.2 695.8 C 2027.3 585.3, 2035 565.1, 2035 570 C 2035 570.5, 2044 595.7, 2055 626.1 C 2066 656.4, 2075 681.3, 2075 681.6 C 2075 681.8, 2062.7 682, 2047.6 682 L 2020.2 682 2012.1 704.5 C 2007.7 716.8, 2004 727.1, 2004 727.2 C 2004 727.4, 2023.5 727.4, 2047.4 727.2 C 2081.5 727, 2090.9 727.2, 2091.7 728.2 C 2092.5 729.3, 2119.4 802.9, 2124.6 818.3 L 2126.2 823 2150.6 823 C 2169.1 823, 2175 822.7, 2175 821.8 C 2175 820.7, 2169.3 804.4, 2144.3 735 C 2135.2 709.8, 2131.6 699.7, 2119.5 666 C 2115.3 654.2, 2109.2 637.3, 2106 628.5 C 2102.9 619.7, 2091.8 588.8, 2081.4 559.8 L 2062.6 507 2033.8 507 L 2005 507 2003.9 509.8","bbox":[1891.8,507,2175,823]},{"d":"M 2290.5 508.3 C 2290.2 508.9, 2290.1 579.9, 2290.2 666 L 2290.5 822.5 2313.5 822.5 L 2336.5 822.5 2336.5 700.8 C 2336.5 633.8, 2336.8 579, 2337.1 579 C 2337.5 579, 2352.8 605.9, 2371.2 638.8 C 2451.2 781.3, 2473.3 820.6, 2474.2 821.8 C 2475 822.7, 2482 823, 2504.9 822.8 L 2534.5 822.5 2534.5 665 L 2534.5 507.5 2511.7 507.5 L 2489 507.5 2489 631.3 C 2489 699.3, 2488.6 755, 2488.2 755 C 2487.7 755, 2486.6 753.5, 2485.8 751.6 C 2484.4 748.8, 2382.5 564.4, 2358.2 520.8 L 2350.5 507 2320.7 507 C 2297.8 507, 2290.8 507.3, 2290.5 508.3","bbox":[2290.1,507,2534.5,823]}],"tagline":[{"d":"M 995.5 871.3 C 995.2 871.9, 990.3 886, 984.4 902.5 C 978.6 919, 973.2 934.2, 972.4 936.4 C 971.6 938.5, 971 940.4, 971 940.6 C 971 940.8, 973.4 941, 976.3 941 L 981.5 941 991.4 913.2 C 996.8 898, 1001.6 885.1, 1002 884.7 C 1002.4 884.3, 1004.5 889, 1006.8 895.2 C 1009 901.4, 1011.1 907.3, 1011.5 908.3 C 1012.1 909.8, 1011.5 910, 1005.7 910 L 999.2 910 997.6 914.7 C 996.7 917.3, 996 919.5, 996 919.7 C 996 919.9, 1000.4 920, 1005.8 920 L 1015.6 920 1017.5 925.3 C 1018.5 928.1, 1020.2 932.9, 1021.2 935.8 L 1023.1 941 1028.4 941 L 1033.7 941 1021.4 906.5 C 1014.7 887.6, 1008.9 871.6, 1008.5 871 C 1007.6 869.5, 996 869.7, 995.5 871.3","bbox":[971,869.5,1033.7,941]},{"d":"M 1064 897.5 C 1064 927, 1064.4 929.5, 1069.3 934.9 C 1073.8 939.7, 1078.4 941, 1092.5 941 C 1107.6 941, 1112 939.5, 1117.4 932.7 L 1120.5 928.8 1120.8 899.4 L 1121.1 870 1116 870 L 1111 870 1111 897.6 L 1111 925.2 1108.1 928.1 L 1105.2 931 1092.5 931 L 1079.8 931 1076.9 928.1 L 1074 925.2 1074 897.6 L 1074 870 1069 870 L 1064 870 1064 897.5","bbox":[1064,870,1121.1,941]},{"d":"M 1151 875 L 1151 880 1163 880 L 1175 880 1175 910.5 L 1175 941 1180 941 L 1185 941 1185 910.5 L 1185 880 1196.5 880 L 1208 880 1208 875 L 1208 870 1179.5 870 L 1151 870 1151 875","bbox":[1151,870,1208,941]},{"d":"M 1254.1 870.9 C 1249.1 872.2, 1242.9 877, 1240.6 881.5 L 1238.5 885.5 1238.5 905 C 1238.5 927, 1238.8 928.5, 1243.3 933.6 C 1248.6 939.8, 1252.6 941, 1267.5 941 C 1285.7 941, 1292.2 937.8, 1295.8 927.1 C 1297.3 922.8, 1297.4 889.9, 1296 884.8 C 1294.6 879.9, 1290.7 875.4, 1285.6 872.8 C 1281.1 870.4, 1260.9 869.2, 1254.1 870.9 M 1254.3 881.5 C 1248.5 884, 1247.8 886.9, 1248.2 907.2 L 1248.5 925.2 1251.8 928.1 L 1255 931 1267 931 C 1286.7 931, 1287 930.6, 1287 905.3 C 1287 885.8, 1286.7 884.4, 1281 881.5 C 1277.2 879.5, 1258.8 879.5, 1254.3 881.5","bbox":[1238.5,869.2,1297.4,941]},{"d":"M 1332 905.5 L 1332 941 1337 941 L 1342.1 941 1341.8 914 C 1341.6 899, 1341.9 887.1, 1342.4 887.3 C 1342.8 887.4, 1349.9 899.5, 1358 914 L 1372.7 940.5 1379.3 940.8 L 1386 941.1 1386 905.5 L 1386 870 1381.5 870 L 1377 870 1377 898 C 1377 913.4, 1376.7 926, 1376.3 926 C 1375.8 926, 1368.7 913.5, 1360.3 898.2 L 1345.2 870.5 1338.6 870.2 L 1332 869.9 1332 905.5","bbox":[1332,869.9,1386,941.1]},{"d":"M 1437.5 870.9 C 1432.3 872.2, 1428.2 874.9, 1425.3 878.7 L 1422.5 882.3 1422.2 903.9 C 1421.8 928.4, 1421.9 928.7, 1426.3 933.6 C 1431.6 939.8, 1435.6 941, 1450.5 941 C 1465.2 941, 1469.7 939.6, 1475 933.8 C 1479.4 929.1, 1480.3 923.2, 1479.8 902.5 C 1479.4 880.6, 1478.2 877.7, 1468 872.4 C 1464.1 870.4, 1443.2 869.4, 1437.5 870.9 M 1437.3 881.5 C 1431.7 883.9, 1431 886.8, 1431 906.6 L 1431 924.2 1434.4 927.6 L 1437.8 931 1450.5 931 L 1463.2 931 1466.6 927.6 L 1470 924.2 1470 906.7 C 1470 887.2, 1469.5 884.9, 1464.8 882 C 1460.7 879.5, 1442.6 879.2, 1437.3 881.5","bbox":[1421.8,869.4,1480.3,941]},{"d":"M 1515 905.5 L 1515 941 1520 941 L 1525 941 1525.2 914.5 L 1525.5 888.1 1533.9 898.5 L 1542.4 909 1547 909 L 1551.7 909 1560.1 898.5 L 1568.5 888.1 1568.8 914.5 L 1569 941 1574 941 L 1579 941 1579 905.5 L 1579 870 1574.6 870 L 1570.2 870 1558.9 884 C 1552.7 891.7, 1547.3 898, 1547 898 C 1546.7 898, 1541.3 891.7, 1535.1 884 L 1523.8 870 1519.4 870 L 1515 870 1515 905.5","bbox":[1515,870,1579,941]},{"d":"M 1630.3 870.9 C 1625.1 872.2, 1620.7 875.3, 1617.5 879.9 L 1614.5 884.2 1614.5 905.3 L 1614.5 926.5 1617.2 931.2 C 1619.3 934.6, 1621.3 936.5, 1625.2 938.4 L 1630.4 941 1643.5 941 L 1656.6 941 1661.8 938.4 C 1665.7 936.5, 1667.7 934.6, 1669.8 931.2 L 1672.5 926.5 1672.8 909.4 C 1673.4 884.5, 1671.4 877.8, 1661.7 872.8 C 1657.1 870.4, 1636.9 869.2, 1630.3 870.9 M 1630 881.8 C 1624.5 884.5, 1624 886.4, 1624 906.4 L 1624 924.2 1627.4 927.6 L 1630.8 931 1643.5 931 L 1656.2 931 1659.6 927.6 L 1663 924.2 1663 906.6 C 1663 886.6, 1662.3 883.9, 1656.5 881.4 C 1651.4 879.3, 1634.5 879.5, 1630 881.8","bbox":[1614.5,869.2,1673.4,941]},{"d":"M 1708.2 899.4 L 1708.5 928.9 1710.6 931.6 C 1711.7 933.1, 1714.3 935.8, 1716.4 937.4 L 1720.2 940.5 1734.2 940.8 C 1750.4 941.2, 1755 940.1, 1759.9 934.5 C 1764.5 929.2, 1765 925.8, 1765 896.8 L 1765 870 1760 870 L 1755 870 1755 897.6 L 1755 925.2 1752.1 928.1 L 1749.2 931 1736.5 931 L 1723.8 931 1720.9 928.1 L 1718 925.2 1718 897.6 L 1718 870 1713 870 L 1707.9 870 1708.2 899.4","bbox":[1707.9,870,1765,941.2]},{"d":"M 1810.6 871.5 C 1802.1 874.5, 1798.5 880.8, 1799.2 892 C 1799.5 897.4, 1800.1 899.4, 1802.2 902.2 C 1806.7 908.1, 1809.9 909, 1826.3 909 L 1840.7 909 1843.4 911.1 L 1846 913.1 1846 920.1 C 1846 925.7, 1845.6 927.4, 1844 929 L 1842 931 1820.5 931 L 1799 931 1799 936 L 1799 941 1821 941 L 1843.1 941 1847 939 C 1853.3 935.8, 1855.4 931.8, 1855.9 922.6 C 1856.7 903.8, 1850.7 899, 1826.3 899 C 1814.3 899, 1812.8 898.8, 1811 897 C 1807.9 893.9, 1808.2 885.7, 1811.5 882.5 L 1813.9 880 1833.5 880 L 1853 880 1853 875 L 1853 870 1833.8 870 C 1820 870.1, 1813.4 870.5, 1810.6 871.5","bbox":[1798.5,870,1856.7,941]},{"d":"M 1952.8 871 C 1943.7 873.7, 1940 879.3, 1940 890.2 C 1940 896.3, 1940.4 898.3, 1942.3 901 C 1947 908, 1948.4 908.4, 1966.7 909 L 1983.2 909.5 1985.1 911.9 C 1988 915.5, 1987.8 925.9, 1984.7 928.8 L 1982.4 931 1961.2 931 L 1940 931 1940 936 L 1940 941 1962.2 941 L 1984.3 941 1988.6 938.5 C 1996.5 933.8, 1999.8 919.6, 1995.1 909.5 C 1991.2 900.9, 1986.5 899.1, 1967.4 899 L 1953.3 899 1951.4 896.9 C 1948.3 893.4, 1948.8 885.5, 1952.3 882.4 L 1955.1 880 1974.1 880 L 1993 880 1993 875 L 1993 870 1974.3 870.1 C 1963.9 870.1, 1954.3 870.5, 1952.8 871","bbox":[1940,870,1999.8,941]},{"d":"M 2028 875.7 C 2030.3 878.9, 2036.4 887.4, 2041.6 894.6 L 2051 907.7 2051 924.4 L 2051 941 2056 941 L 2061 941 2061 924.2 L 2061 907.5 2074 889.3 C 2081.2 879.3, 2087 870.9, 2087 870.6 C 2087 870.3, 2084.4 870, 2081.3 870 L 2075.5 870 2066 883.5 C 2060.8 890.9, 2056.2 896.9, 2055.8 896.7 C 2055.5 896.6, 2050.9 890.7, 2045.8 883.5 L 2036.4 870.5 2030.1 870.2 L 2023.8 869.9 2028 875.7","bbox":[2023.8,869.9,2087,941]},{"d":"M 2128.7 871.4 C 2120.6 874.3, 2117 879.9, 2117 889.5 C 2117 897.7, 2118.7 901.9, 2123.6 905.6 L 2127.3 908.5 2143.8 909 L 2160.2 909.5 2162.1 911.9 C 2164.9 915.3, 2164.8 926.2, 2162 929 L 2160 931 2138.5 931 L 2117 931 2117 936 L 2117 941 2139.3 941 L 2161.5 941 2165.5 938.7 C 2175.9 932.9, 2177.5 911.6, 2168.1 903.7 C 2163.5 899.9, 2159.1 899, 2143.9 899 C 2127.7 899, 2127 898.6, 2127 889.7 C 2127 884.9, 2127.3 883.9, 2129.6 882.1 L 2132.3 880 2151.7 880 L 2171.1 880 2170.8 875.3 L 2170.5 870.5 2151.5 870.3 C 2137.4 870.1, 2131.5 870.4, 2128.7 871.4","bbox":[2117,870.1,2177.5,941]},{"d":"M 2203 875 L 2203 880 2215 880 L 2227 880 2227 910.5 L 2227 941 2232 941 L 2237 941 2237 910.5 L 2237 880 2248.5 880 L 2260 880 2260 875 L 2260 870 2231.5 870 L 2203 870 2203 875","bbox":[2203,870,2260,941]},{"d":"M 2290.7 870.7 C 2290.3 871, 2290 887, 2290 906.2 L 2290 941 2317.5 941 L 2345 941 2345 936 L 2345 931 2322.5 931 L 2300 931 2300 905.5 L 2300 880 2322.5 880 L 2345 880 2345 875 L 2345 870 2318.2 870 C 2303.4 870, 2291 870.3, 2290.7 870.7 M 2307 904 L 2307 909 2326 909 L 2345 909 2345 904 L 2345 899 2326 899 L 2307 899 2307 904","bbox":[2290,870,2345,941]},{"d":"M 2379 905.5 L 2379 941 2384 941 L 2389 941 2389.2 914.5 L 2389.5 888 2398 898.5 L 2406.5 909 2411.1 909 L 2415.6 909 2424.1 898.6 C 2428.7 892.8, 2432.9 888.1, 2433.3 888.1 C 2433.7 888, 2433.9 899.9, 2433.8 914.5 L 2433.5 941 2438.3 941 L 2443 941 2443 905.5 L 2443 870 2438.7 870 L 2434.3 870 2423 884 C 2416.8 891.7, 2411.4 898, 2411.1 898 C 2410.8 898, 2405.4 891.7, 2399.2 884 L 2387.8 870 2383.4 870 L 2379 870 2379 905.5","bbox":[2379,870,2443,941]},{"d":"M 2490.1 871.2 C 2481 873.8, 2478 878.5, 2478 890.3 L 2478 898.9 2481.1 902.5 C 2486.4 908.5, 2488.3 909, 2503.9 909 C 2518.9 909, 2522.1 909.7, 2523.9 913.7 C 2525.8 917.8, 2525.3 925.4, 2522.9 928.4 L 2520.9 931 2499.5 931 L 2478.2 931 2477.8 936 L 2477.5 941 2499.2 941 C 2512 941, 2522 940.6, 2523.7 939.9 C 2537.5 934.7, 2539.1 909.8, 2526.2 901.8 L 2522.5 899.5 2506.7 899.1 L 2491 898.8 2489 896.3 C 2485.4 891.7, 2486.9 883.3, 2491.7 881.1 C 2493.2 880.4, 2501.2 880, 2512.5 880 L 2531 880 2531 875 L 2531 870 2512.3 870.1 C 2501.9 870.1, 2492 870.6, 2490.1 871.2","bbox":[2477.5,870,2539.1,941]}]};
+
+const NS = "http://www.w3.org/2000/svg";
+const REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const MARK = PATHS.mark.d;
+
+/* Colours resolve from CSS custom properties, so the theme and logo toggles restyle running animations live. */
+const LOGO = { fg: "var(--lf)", accent: "var(--la)", core: "var(--lc)", pulse: "var(--lp)", edge: "var(--le)" };
+const EASE = {
+  expoOut: "cubic-bezier(0.19, 1, 0.22, 1)",
+  quintOut: "cubic-bezier(0.22, 1, 0.36, 1)",
+  quartOut: "cubic-bezier(0.25, 1, 0.5, 1)",
+  quintIn: "cubic-bezier(0.64, 0, 0.78, 0)",
+  expoIn: "cubic-bezier(0.7, 0, 0.84, 0)",
+  inOut: "cubic-bezier(0.65, 0, 0.35, 1)",
+  quintInOut: "cubic-bezier(0.83, 0, 0.17, 1)",
+  settle: "cubic-bezier(0.34, 1.16, 0.64, 1)",
+  step: "steps(1, end)",
+};
+
+/* Mark geometry, in the 2822 x 1440 master viewBox. */
+const RINGS = [
+  { k: "TL", x: 377, y: 369, dir: 1 },
+  { k: "TR", x: 652, y: 379, dir: -1 },
+  { k: "BR", x: 665, y: 1073, dir: 1 },
+  { k: "BL", x: 382, y: 1066, dir: -1 },
+];
+const BUS = [513, 705];
+/* Each route runs from a ring edge, down its trace, along the bus to the centre. */
+const ROUTES = [
+  [[377, 445], [377, 608], [437, 705], BUS],
+  [[652, 455], [652, 593], [589, 706], BUS],
+  [[382, 990], [382, 825], [437, 705], BUS],
+  [[665, 997], [665, 808], [589, 706], BUS],
+];
+const LOOP_A = "M377,297 A72,72 0 0 0 377,441 V608 L437,705 H589 L665,808 V1001 A72,72 0 0 1 665,1145";
+const LOOP_B = "M652,307 A72,72 0 0 1 652,451 V593 L589,706 H437 L382,825 V994 A72,72 0 0 0 382,1138";
+
+/* Lockup framings (16:9 around the content). */
+const VB_HORI = [-342, -267, 3508, 1973];
+const VB_VERT = [-248, -905, 4000, 2250];
+/* Vertical lockup: mark scaled and centred above the wordmark, ratio measured from the brand PNG. */
+const VERT_MARK = { tx: 1266.9, ty: -772.4, s: 0.944 };
+const LOADER_VB = "240 240 560 960";
+
+const MASK_TRACE_W = 95;
+const MASK_RING_R = 72;
+const MASK_RING_W = 46;
+const RING_OVERRUN = Math.PI / 6;
+const TRACE_MS = 1050;
+const BLOOM_MS = 1100;
+const IGNITION_MS = 4500;
+const IDLE_PERIOD_MS = 4000;
+
+let uidCount = 0;
+const uid = (p) => `${p}${++uidCount}`;
+const $$ = (root, sel) => [...root.querySelectorAll(sel)];
+const polyD = (pts) => "M" + pts.map((p) => p.join(",")).join(" L");
+const vbStr = (vb) => vb.join(" ");
+
+function svgEl(viewBox, inner, cls = "art") {
+  const t = document.createElement("template");
+  t.innerHTML = `<svg xmlns="${NS}" class="${cls}" viewBox="${viewBox}" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false">${inner}</svg>`;
+  return t.content.firstElementChild;
+}
+
+function ringArcD(r, ring) {
+  const sy = ring.y < BUS[1] ? 1 : -1;
+  const sweep = ring.x < BUS[0] ? 1 : 0;
+  const a = `${ring.x},${ring.y + sy * r}`;
+  const b = `${ring.x},${ring.y - sy * r}`;
+  /* Overrun past the start so the sweep closes without a hairline seam. */
+  const end = (sy > 0 ? Math.PI / 2 : -Math.PI / 2) + (sweep ? 1 : -1) * RING_OVERRUN;
+  const c = `${(ring.x + r * Math.cos(end)).toFixed(1)},${(ring.y + r * Math.sin(end)).toFixed(1)}`;
+  return `M${a} A${r},${r} 0 1 ${sweep} ${b} A${r},${r} 0 1 ${sweep} ${a} A${r},${r} 0 0 ${sweep} ${c}`;
+}
+
+/* Keyframes that move an element along a polyline at constant speed. */
+function routeKeyframes(pts) {
+  const segs = pts.slice(1).map((p, i) => Math.hypot(p[0] - pts[i][0], p[1] - pts[i][1]));
+  const total = segs.reduce((a, b) => a + b, 0);
+  let acc = 0;
+  return pts.map((p, i) => {
+    if (i > 0) acc += segs[i - 1];
+    return { offset: acc / total, transform: `translate(${p[0]}px, ${p[1]}px)` };
+  });
+}
+
+class Timeline {
+  constructor() { this.anims = []; }
+  add(el, keyframes, opts) {
+    const a = el.animate(keyframes, { fill: "both", ...opts });
+    this.anims.push(a);
+    return a;
+  }
+  cancel() { this.anims.forEach((a) => a.cancel()); this.anims = []; }
+  loops() { return this.anims.filter((a) => a.effect.getTiming().iterations === Infinity); }
+  pauseLoops() { this.loops().forEach((a) => a.pause()); }
+  playLoops() { this.loops().forEach((a) => a.play()); }
+  seek(t) { this.anims.forEach((a) => { a.currentTime = t; }); }
+}
+
+/* ---------------------------------------------------------------- markup */
+
+function glowDef(id, color) {
+  return `<radialGradient id="${id}"><stop offset="0" style="stop-color:${color}" stop-opacity=".95"/><stop offset=".28" style="stop-color:${color}" stop-opacity=".42"/><stop offset="1" style="stop-color:${color}" stop-opacity="0"/></radialGradient>`;
+}
+
+function etchMaskDef(id, withRings) {
+  const rings = withRings
+    ? RINGS.map((r) => `<path class="m-ring" d="${ringArcD(MASK_RING_R, r)}" pathLength="1" fill="none" stroke="#fff" stroke-width="${MASK_RING_W}" stroke-dasharray="1 2" stroke-dashoffset="1"/>`).join("")
+    : "";
+  const traces = ROUTES.map((pts) => `<path class="m-trace" d="${polyD(pts)}" pathLength="1" fill="none" stroke="#fff" stroke-width="${MASK_TRACE_W}" stroke-linejoin="round" stroke-dasharray="1 2" stroke-dashoffset="1"/>`).join("");
+  return `<mask id="${id}" maskUnits="userSpaceOnUse" x="0" y="0" width="2822" height="1440">${rings}${traces}<rect class="m-full" x="0" y="0" width="2822" height="1440" fill="#fff" opacity="0"/></mask>`;
+}
+
+function pingsMarkup(th) {
+  return RINGS.map((r) => `<circle class="ping" cx="${r.x}" cy="${r.y}" r="84" fill="none" style="stroke:${th.accent}" stroke-width="1.25" vector-effect="non-scaling-stroke" opacity="0"/>`).join("");
+}
+
+function packetsMarkup(glowId, th) {
+  return ROUTES.map(() => `<g class="pk" opacity="0"><circle r="64" fill="url(#${glowId})"/><circle r="11" style="fill:${th.core}"/></g>`).join("");
+}
+
+function bloomMarkup(glowId) {
+  return `<ellipse class="bloom" cx="${BUS[0]}" cy="${BUS[1]}" rx="300" ry="170" fill="url(#${glowId})" opacity="0"/>`;
+}
+
+function pulseMarkup(clipId, color, cls = "pulse", dash = 0.12) {
+  return `<g clip-path="url(#${clipId})">${[LOOP_A, LOOP_B].map((d) => `<path class="${cls}" d="${d}" pathLength="1" fill="none" style="stroke:${color}" stroke-width="130" stroke-dasharray="${dash} 2" stroke-dashoffset="${dash}"/>`).join("")}</g>`;
+}
+
+function markClipDef(id) {
+  return `<clipPath id="${id}"><path d="${MARK}" clip-rule="evenodd"/></clipPath>`;
+}
+
+/* Self-assembling mark: etched fill, pings, packets, bloom, optional idle pulse. */
+function assemblyMarkup(id, th, { pulse = false } = {}) {
+  const defs = `<defs>${glowDef(id + "-g", th.accent)}${etchMaskDef(id + "-m", true)}${markClipDef(id + "-c")}</defs>`;
+  return defs
+    + `<path class="mk" d="${MARK}" fill-rule="evenodd" style="fill:${th.fg}" mask="url(#${id}-m)"/>`
+    + `<path class="mk-hot" d="${MARK}" fill-rule="evenodd" style="fill:${th.accent}" mask="url(#${id}-m)"/>`
+    + (pulse ? pulseMarkup(id + "-c", th.pulse) : "")
+    + pingsMarkup(th) + `<g class="glow">` + bloomMarkup(id + "-g") + packetsMarkup(id + "-g", th) + `</g>`;
+}
+
+function letterBox(i) {
+  const [x0, y0, x1, y1] = PATHS.letters[i].bbox;
+  return { x0, y0, x1, y1, w: x1 - x0, h: y1 - y0 };
+}
+
+const WIPE_PAD = 24;
+function wipeLettersMarkup(id, th) {
+  return PATHS.letters.map((l, i) => {
+    const b = letterBox(i);
+    const W = b.w + WIPE_PAD * 2;
+    return `<clipPath id="${id}-l${i}"><rect class="wclip" x="${b.x0 - WIPE_PAD - W}" y="${b.y0 - 80}" width="${W}" height="${b.h + 160}"/></clipPath>`
+      + `<g clip-path="url(#${id}-l${i})"><path class="lt" d="${l.d}" fill-rule="evenodd" style="fill:${th.fg}"/></g>`
+      + `<rect class="scan" x="-4" y="${b.y0 - 34}" width="8" height="${b.h + 68}" style="fill:${th.accent}" opacity="0"/>`;
+  }).join("");
+}
+
+function plainLettersMarkup(th) {
+  return PATHS.letters.map((l) => `<path class="lt" d="${l.d}" fill-rule="evenodd" style="fill:${th.fg}"/>`).join("");
+}
+
+function taglineMarkup(th) {
+  return PATHS.tagline.map((g) => `<path class="tg" d="${g.d}" fill-rule="evenodd" style="fill:${th.accent}"/>`).join("");
+}
+
+/* ---------------------------------------------------------------- shared animation phrases */
+
+const PING_KF = [
+  { transform: "scale(1)", opacity: 0 },
+  { opacity: 0.85, offset: 0.08 },
+  { transform: "scale(2.4)", opacity: 0 },
+];
+const DASH_ON = [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }];
+
+/* Rings sweep, traces etch with packets riding the edge, bloom, colour settles. Returns end time. */
+function animateAssembly(root, tl, t0 = 0) {
+  $$(root, ".m-ring").forEach((el, i) => tl.add(el, DASH_ON, { duration: 400, delay: t0 + i * 80, easing: EASE.quartOut }));
+  $$(root, ".ping").forEach((el, i) => tl.add(el, PING_KF, { duration: 1100, delay: t0 + i * 80 + 180, easing: EASE.expoOut }));
+  const tTrace = t0 + 520;
+  animateEtch(root, tl, tTrace);
+  const tMeet = tTrace + TRACE_MS * 0.82;
+  animateConnect(root, tl, tMeet);
+  return tMeet + BLOOM_MS;
+}
+
+function animateEtch(root, tl, tTrace) {
+  $$(root, ".m-trace").forEach((el, i) => tl.add(el, DASH_ON, { duration: TRACE_MS, delay: tTrace + i * 30, easing: EASE.expoOut }));
+  $$(root, ".pk").forEach((el, i) => {
+    const timing = { duration: TRACE_MS, delay: tTrace + i * 30, easing: EASE.expoOut };
+    tl.add(el, routeKeyframes(ROUTES[i]), timing);
+    tl.add(el, [{ opacity: 0 }, { opacity: 1, offset: 0.05 }, { opacity: 1, offset: 0.7 }, { opacity: 0 }], { ...timing, easing: "linear" });
+  });
+}
+
+function animateConnect(root, tl, tMeet) {
+  const bloom = root.querySelector(".bloom");
+  tl.add(bloom, [{ transform: "scale(.25)", opacity: 0 }, { opacity: 1, offset: 0.12 }, { transform: "scale(1.6)", opacity: 0 }], { duration: BLOOM_MS, delay: tMeet, easing: EASE.expoOut });
+  $$(root, ".m-full").forEach((el) => tl.add(el, [{ opacity: 0 }, { opacity: 1 }], { duration: 180, delay: tMeet, easing: EASE.quartOut }));
+  $$(root, ".mk-hot").forEach((el) => tl.add(el, [{ opacity: 1 }, { opacity: 0 }], { duration: 480, delay: tMeet + 60, easing: EASE.quartOut }));
+}
+
+function animateWipe(root, tl, t1) {
+  const clips = $$(root, ".wclip");
+  const letters = $$(root, ".lt");
+  const scans = $$(root, ".scan");
+  clips.forEach((clip, i) => {
+    const b = letterBox(i);
+    const W = b.w + WIPE_PAD * 2;
+    const timing = { duration: 620, delay: t1 + i * 90, easing: EASE.quintOut };
+    tl.add(clip, [{ transform: "translateX(0px)" }, { transform: `translateX(${W}px)` }], timing);
+    tl.add(letters[i], [{ transform: "translateY(36px)" }, { transform: "translateY(0px)" }], timing);
+    tl.add(scans[i], [{ transform: `translateX(${b.x0 - WIPE_PAD}px)` }, { transform: `translateX(${b.x1 + WIPE_PAD}px)` }], timing);
+    tl.add(scans[i], [{ opacity: 0 }, { opacity: 1, offset: 0.06 }, { opacity: 0.9, offset: 0.55 }, { opacity: 0 }], { ...timing, easing: "linear" });
+  });
+}
+
+const DECODE_SEQS = [
+  [0, 0.9, 0.1, 0.6, 0.25, 1],
+  [0, 0.4, 0, 0.85, 0.3, 1],
+  [0, 0.7, 0.2, 0.15, 0.8, 1],
+];
+function animateDecode(root, tl, t2, perGlyph = 25) {
+  $$(root, ".tg").forEach((el, i) => {
+    const seq = DECODE_SEQS[(i * 7) % DECODE_SEQS.length];
+    const kf = seq.map((o) => ({ opacity: o, easing: EASE.step }));
+    tl.add(el, kf, { duration: 360, delay: t2 + i * perGlyph, easing: "linear" });
+  });
+}
+
+function animateIdlePulse(root, tl, start) {
+  const [a, b] = $$(root, ".pulse");
+  const timing = { duration: IDLE_PERIOD_MS, delay: start, iterations: Infinity, easing: "linear" };
+  tl.add(a, [{ strokeDashoffset: 0.12, easing: EASE.inOut }, { strokeDashoffset: -1, offset: 0.32 }, { strokeDashoffset: -1 }], timing);
+  tl.add(b, [{ strokeDashoffset: 0.12 }, { strokeDashoffset: 0.12, offset: 0.16, easing: EASE.inOut }, { strokeDashoffset: -1, offset: 0.48 }, { strokeDashoffset: -1 }], timing);
+}
+
+/* ---------------------------------------------------------------- presentation builds */
+
+function buildIgnition(host, tl, th = LOGO) {
+  const id = uid("ig");
+  const svg = svgEl(vbStr(VB_HORI),
+    assemblyMarkup(id, th, { pulse: true }) + wipeLettersMarkup(id, th) + taglineMarkup(th));
+  host.append(svg);
+  animateAssembly(svg, tl, 0);
+  animateWipe(svg, tl, 1800);
+  animateDecode(svg, tl, 2600);
+  if (!REDUCED) animateIdlePulse(svg, tl, IGNITION_MS);
+  return IGNITION_MS;
+}
+
+function buildHero(host, tl, card) {
+  const D = buildIgnition(host, tl, LOGO);
+  const cta = card.querySelector(".hero-cta");
+  tl.add(cta, [{ opacity: 0, transform: "translateY(10px)" }, { opacity: 1, transform: "translateY(0px)" }], { duration: 700, delay: 3200, easing: EASE.quintOut });
+  return D;
+}
+
+/* Corner targets, in outer viewBox coordinates. */
+function cornerFor(ring, vb, margin) {
+  const left = ring.x < BUS[0];
+  const top = ring.y < BUS[1];
+  return [left ? vb[0] - margin : vb[0] + vb[2] + margin, top ? vb[1] - margin : vb[1] + vb[3] + margin];
+}
+
+function flyTransform(ring, dx, dy, rot, s) {
+  return `translate(${dx}px, ${dy}px) translate(${ring.x}px, ${ring.y}px) rotate(${rot}deg) scale(${s}) translate(${-ring.x}px, ${-ring.y}px)`;
+}
+
+function ringPiecesMarkup(id, th) {
+  return RINGS.map((r, i) => `<clipPath id="${id}-rc${i}"><circle cx="${r.x}" cy="${r.y}" r="90"/></clipPath>`).join("")
+    + `<g class="pieces">` + RINGS.map((r, i) => `<g class="fly"><g clip-path="url(#${id}-rc${i})"><path d="${MARK}" fill-rule="evenodd" style="fill:${th.fg}"/></g><circle class="rotor" cx="${r.x}" cy="${r.y}" r="112" fill="none" style="stroke:${th.accent}" stroke-width="9" pathLength="1" stroke-dasharray="0.16 0.34" opacity="0"/></g>`).join("") + `</g>`;
+}
+
+function buildFormation(host, tl, th = LOGO) {
+  const id = uid("fm");
+  const { tx, ty, s } = VERT_MARK;
+  const inner = `<defs>${glowDef(id + "-g", th.accent)}${etchMaskDef(id + "-m", false)}</defs>`
+    + `<g transform="translate(${tx} ${ty}) scale(${s})">`
+    + `<path class="mk" d="${MARK}" fill-rule="evenodd" style="fill:${th.fg}" mask="url(#${id}-m)"/>`
+    + `<path class="mk-hot" d="${MARK}" fill-rule="evenodd" style="fill:${th.accent}" mask="url(#${id}-m)"/>`
+    + ringPiecesMarkup(id, th)
+    + `<path class="full" d="${MARK}" fill-rule="evenodd" style="fill:${th.fg}" opacity="0"/>`
+    + pingsMarkup(th) + `<g class="glow">` + bloomMarkup(id + "-g") + packetsMarkup(id + "-g", th) + `</g>` + `</g>`
+    + plainLettersMarkup(th) + taglineMarkup(th);
+  const svg = svgEl(vbStr(VB_VERT), inner);
+  host.append(svg);
+  animateFlyIn(svg, tl);
+  animateEtch(svg, tl, 1150);
+  const tMeet = 1150 + TRACE_MS * 0.82;
+  animateConnect(svg, tl, tMeet);
+  const tSwap = tMeet + 520;
+  tl.add(svg.querySelector(".full"), [{ opacity: 0 }, { opacity: 1 }], { duration: 1, delay: tSwap });
+  [".pieces", ".mk"].forEach((sel) => tl.add(svg.querySelector(sel), [{ opacity: 1 }, { opacity: 0 }], { duration: 1, delay: tSwap + 1 }));
+  $$(svg, ".lt").forEach((el, i) => tl.add(el, [{ opacity: 0, transform: "translateY(60px)" }, { opacity: 1, transform: "translateY(0px)" }], { duration: 760, delay: 2050 + i * 70, easing: EASE.quintOut }));
+  animateDecode(svg, tl, 2650);
+  return 3600;
+}
+
+function animateFlyIn(svg, tl) {
+  const { tx, ty, s } = VERT_MARK;
+  const flies = $$(svg, ".fly");
+  const rotors = $$(svg, ".rotor");
+  const pings = $$(svg, ".ping");
+  RINGS.forEach((r, i) => {
+    const [cx, cy] = cornerFor(r, VB_VERT, 140);
+    const dx = (cx - (tx + s * r.x)) / s;
+    const dy = (cy - (ty + s * r.y)) / s;
+    const delay = i * 70;
+    tl.add(flies[i], [{ transform: flyTransform(r, dx, dy, -r.dir * 28, 0.62) }, { transform: flyTransform(r, 0, 0, 0, 1) }], { duration: 1050, delay, easing: EASE.settle });
+    tl.add(flies[i], [{ opacity: 0 }, { opacity: 1 }], { duration: 300, delay, easing: EASE.quartOut });
+    tl.add(rotors[i], [{ transform: "rotate(0deg)" }, { transform: `rotate(${r.dir * 1260}deg)` }], { duration: 1500, delay, easing: "cubic-bezier(0.3, 0.6, 0.5, 1)" });
+    tl.add(rotors[i], [{ opacity: 0 }, { opacity: 1, offset: 0.08 }, { opacity: 1, offset: 0.62 }, { opacity: 0 }], { duration: 1500, delay, easing: "linear" });
+    tl.add(pings[i], PING_KF, { duration: 1100, delay: delay + 820, easing: EASE.expoOut });
+  });
+}
+
+function buildDispersal(host, tl, th = LOGO) {
+  const id = uid("dp");
+  const holes = RINGS.map((r) => `<circle cx="${r.x}" cy="${r.y}" r="90" fill="#000"/>`).join("");
+  const corners = RINGS.map((r) => cornerFor(r, VB_HORI, 180));
+  const trails = RINGS.map((r, i) => `<path class="trail" d="M${r.x},${r.y} L${corners[i][0]},${corners[i][1]}" pathLength="1" fill="none" style="stroke:${th.accent}" stroke-width="1.5" vector-effect="non-scaling-stroke" stroke-dasharray="1 2" stroke-dashoffset="1"/>`).join("");
+  const inner = `<defs><mask id="${id}-h" maskUnits="userSpaceOnUse" x="0" y="0" width="2822" height="1440"><rect width="2822" height="1440" fill="#fff"/>${holes}</mask></defs>`
+    + `<g class="all">${trails}<g class="bodyg"><path class="body" d="${MARK}" fill-rule="evenodd" style="fill:${th.fg}" mask="url(#${id}-h)"/>`
+    + `<path class="body-hot" d="${MARK}" fill-rule="evenodd" style="fill:${th.accent}" mask="url(#${id}-h)" opacity="0"/></g>`
+    + ringPiecesMarkup(id, th)
+    + `<path class="full" d="${MARK}" fill-rule="evenodd" style="fill:${th.fg}"/>`
+    + plainLettersMarkup(th) + taglineMarkup(th) + `</g>`;
+  const svg = svgEl(vbStr(VB_HORI), inner);
+  host.append(svg);
+  if (REDUCED) {
+    tl.add(svg.querySelector(".all"), [{ opacity: 1 }, { opacity: 0 }], { duration: 900, delay: 1400, easing: EASE.inOut });
+    return 2300;
+  }
+  animateLiftOff(svg, tl, corners);
+  return 3400;
+}
+
+function animateLiftOff(svg, tl, corners) {
+  const LIFT = 900;
+  const LIFT_MS = 1200;
+  tl.add(svg.querySelector(".full"), [{ opacity: 1 }, { opacity: 0 }], { duration: 1, delay: LIFT - 60 });
+  const flies = $$(svg, ".fly");
+  const rotors = $$(svg, ".rotor");
+  const trails = $$(svg, ".trail");
+  RINGS.forEach((r, i) => {
+    const [dx, dy] = [corners[i][0] - r.x, corners[i][1] - r.y];
+    const delay = LIFT + i * 60;
+    tl.add(rotors[i], [{ opacity: 0 }, { opacity: 1 }], { duration: 300, delay: delay - 320, easing: EASE.quartOut });
+    tl.add(rotors[i], [{ transform: "rotate(0deg)" }, { transform: `rotate(${r.dir * 1440}deg)` }], { duration: 1800, delay: delay - 320, easing: "cubic-bezier(0.5, 0, 0.7, 0.4)" });
+    tl.add(flies[i], [{ transform: flyTransform(r, 0, 0, 0, 1), opacity: 1 }, { opacity: 1, offset: 0.55 }, { transform: flyTransform(r, dx, dy, r.dir * 24, 0.5), opacity: 0 }], { duration: LIFT_MS, delay, easing: EASE.expoIn });
+    tl.add(trails[i], [{ strokeDashoffset: 1 }, { strokeDashoffset: 0 }], { duration: LIFT_MS, delay, easing: EASE.expoIn });
+    tl.add(trails[i], [{ opacity: 0.8 }, { opacity: 0.8, offset: 0.5 }, { opacity: 0 }], { duration: 1900, delay, easing: "linear" });
+  });
+  const body = svg.querySelector(".bodyg");
+  tl.add(svg.querySelector(".body-hot"), [{ opacity: 0 }, { opacity: 1 }], { duration: 400, delay: LIFT, easing: EASE.quartOut });
+  tl.add(body, [{ opacity: 1 }, { opacity: 0 }], { duration: 1100, delay: LIFT + 400, easing: EASE.inOut });
+  $$(svg, ".tg").forEach((el, i) => tl.add(el, [{ opacity: 1, easing: EASE.step }, { opacity: 0.2, easing: EASE.step }, { opacity: 0.7, easing: EASE.step }, { opacity: 0 }], { duration: 280, delay: LIFT + 300 + i * 14, easing: "linear" }));
+  $$(svg, ".lt").forEach((el, i) => tl.add(el, [{ opacity: 1, transform: "translateY(0px)" }, { opacity: 0, transform: "translateY(-40px)" }], { duration: 460, delay: LIFT + 560 + i * 60, easing: EASE.quintIn }));
+}
+
+function buildTransition(host, tl) {
+  host.innerHTML = `<div class="tr-before"><span class="mono">01 &middot; Presentation</span></div>`
+    + `<div class="tr-panel"><div class="tr-title"><span class="mono">02</span><b>Website</b></div></div>`
+    + `<div class="tr-scanwrap"><div class="tr-scan"></div></div>`;
+  const panel = host.querySelector(".tr-panel");
+  const mark = svgEl("250 250 520 930", `<path d="${MARK}" fill-rule="evenodd" style="fill:var(--lf)" opacity=".055"/>`, "wm");
+  panel.prepend(mark);
+  const title = host.querySelector(".tr-title");
+  if (REDUCED) {
+    tl.add(panel, [{ opacity: 0, clipPath: "inset(0 0 0 0)" }, { opacity: 1, clipPath: "inset(0 0 0 0)" }], { duration: 600, delay: 300, easing: EASE.inOut });
+    return 900;
+  }
+  const timing = { duration: 1100, delay: 200, easing: EASE.quintInOut };
+  tl.add(host.querySelector(".tr-before"), [{ opacity: 1 }, { opacity: 0.25 }], { duration: 600, delay: 200, easing: EASE.inOut });
+  tl.add(panel, [{ clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)" }], timing);
+  tl.add(host.querySelector(".tr-scanwrap"), [{ transform: "translateX(-1%)" }, { transform: "translateX(101%)" }], timing);
+  tl.add(host.querySelector(".tr-scan"), [{ opacity: 0 }, { opacity: 1, offset: 0.08 }, { opacity: 1, offset: 0.85 }, { opacity: 0 }], { ...timing, easing: "linear" });
+  tl.add(mark, [{ transform: "scale(1.08)", opacity: 0 }, { transform: "scale(1)", opacity: 1 }], { duration: 1500, delay: 300, easing: EASE.expoOut });
+  tl.add(title, [{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "translateY(0px)" }], { duration: 700, delay: 950, easing: EASE.quintOut });
+  return 1800;
+}
+
+/* ---------------------------------------------------------------- stage controller */
+
+function settleReduced(tl, host) {
+  tl.anims.forEach((a) => (a.effect.getTiming().iterations === Infinity ? a.cancel() : a.finish()));
+  tl.anims = tl.anims.filter((a) => a.playState !== "idle");
+  tl.add(host, [{ opacity: 0 }, { opacity: 1 }], { duration: 600, easing: EASE.inOut });
+}
+
+const BUILDERS = {
+  ignition: { build: (h, tl) => buildIgnition(h, tl) },
+  formation: { build: (h, tl) => buildFormation(h, tl) },
+  dispersal: { build: (h, tl) => buildDispersal(h, tl), ownsReduced: true },
+  transition: { build: (h, tl) => buildTransition(h, tl), ownsReduced: true },
+  hero: { build: (h, tl, card) => buildHero(h, tl, card) },
+};
+
+function mountStage(card) {
+  const spec = BUILDERS[card.dataset.stage];
+  const host = card.querySelector(".host");
+  const bar = card.querySelector(".progress");
+  let tl = new Timeline();
+  let hasPlayed = false;
+  const play = () => {
+    tl.cancel();
+    tl = new Timeline();
+    host.replaceChildren();
+    const D = spec.build(host, tl, card);
+    if (REDUCED && !spec.ownsReduced) settleReduced(tl, host);
+    if (!REDUCED) tl.add(bar, [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: D, easing: "linear" });
+    hasPlayed = true;
+  };
+  card.querySelector("[data-replay]")?.addEventListener("click", play);
+  wireFullscreen(card);
+  const io = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) { tl.pauseLoops(); return; }
+    if (!hasPlayed) play(); else tl.playLoops();
+  }, { threshold: 0.45 });
+  io.observe(card.querySelector(".stage"));
+}
+
+function wireFullscreen(card) {
+  const btn = card.querySelector("[data-fullscreen]");
+  const stage = card.querySelector("[data-fs]");
+  if (!btn || !stage) return;
+  if (!document.fullscreenEnabled) { btn.disabled = true; btn.title = "Fullscreen is not available in this browser"; return; }
+  btn.addEventListener("click", () => {
+    if (document.fullscreenElement) { document.exitFullscreen(); return; }
+    stage.requestFullscreen().catch(() => {
+      btn.textContent = "Fullscreen blocked";
+      btn.disabled = true;
+    });
+  });
+}
+
+/* ---------------------------------------------------------------- website: nav */
+
+function mountNav() {
+  const link = document.querySelector(".nav-logo");
+  const id = uid("nv");
+  const th = LOGO;
+  const rotors = RINGS.map((r) => `<circle class="rotor" cx="${r.x}" cy="${r.y}" r="112" fill="none" style="stroke:${th.accent}" stroke-width="16" pathLength="1" stroke-dasharray="0.14 0.36" opacity="0"/>`).join("");
+  const svg = svgEl("250 250 2310 935",
+    `<defs>${markClipDef(id + "-c")}</defs><path d="${MARK}" fill-rule="evenodd" style="fill:${th.fg}"/>`
+    + pulseMarkup(id + "-c", th.pulse, "npulse") + rotors + plainLettersMarkup(th), "navsvg");
+  link.append(svg);
+  let live = [];
+  const stop = () => { live.forEach((a) => a.cancel()); live = []; };
+  const enter = () => {
+    stop();
+    if (REDUCED) {
+      live = $$(svg, ".rotor").map((el) => el.animate([{ opacity: 0 }, { opacity: 0.9 }], { duration: 200, fill: "forwards" }));
+      return;
+    }
+    $$(svg, ".rotor").forEach((el, i) => {
+      live.push(el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, fill: "forwards", easing: EASE.quartOut }));
+      live.push(el.animate([{ transform: "rotate(0deg)" }, { transform: `rotate(${RINGS[i].dir * 360}deg)` }], { duration: 700, iterations: Infinity }));
+    });
+    $$(svg, ".npulse").forEach((el, i) => live.push(el.animate([{ strokeDashoffset: 0.12 }, { strokeDashoffset: -1 }], { duration: 900, delay: i * 120, easing: EASE.inOut, fill: "both" })));
+  };
+  const leave = () => {
+    const fades = $$(svg, ".rotor").map((el) => el.animate([{ opacity: getComputedStyle(el).opacity }, { opacity: 0 }], { duration: 220, fill: "forwards", easing: EASE.quartOut }));
+    Promise.all(fades.map((f) => f.finished)).then(() => { stop(); fades.forEach((f) => f.cancel()); }, () => {});
+  };
+  link.addEventListener("pointerenter", enter);
+  link.addEventListener("pointerleave", leave);
+  link.addEventListener("focus", enter);
+  link.addEventListener("blur", leave);
+}
+
+/* ---------------------------------------------------------------- website: scroll assembly */
+
+function mountScrolly() {
+  const wrap = document.getElementById("scrolly");
+  const frame = wrap.querySelector(".scrolly-frame");
+  const readout = wrap.querySelector(".scrolly-read b");
+  const bar = wrap.querySelector(".scrolly-bar");
+  const th = LOGO;
+  const svg = svgEl("262 259 495 913", assemblyMarkup(uid("sc"), th), "scsvg");
+  frame.prepend(svg);
+  const tl = new Timeline();
+  const D = animateAssembly(svg, tl, 0);
+  tl.add(bar, [{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: D, easing: "linear" });
+  tl.anims.forEach((a) => a.pause());
+  let queued = false;
+  const update = () => {
+    queued = false;
+    const rect = wrap.getBoundingClientRect();
+    const span = rect.height - window.innerHeight;
+    const p = REDUCED ? 1 : Math.min(1, Math.max(0, -rect.top / span));
+    tl.seek(p * D);
+    readout.textContent = `${Math.round(p * 100)}%`;
+  };
+  const queue = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  window.addEventListener("scroll", queue, { passive: true });
+  window.addEventListener("resize", queue);
+  update();
+}
+
+/* ---------------------------------------------------------------- loaders */
+
+function loaderMarkup(kind, th, id) {
+  const base = `<path class="base" d="${MARK}" fill-rule="evenodd" style="fill:${th.fg}" opacity="${kind === "rotor" ? 0.22 : 0.18}"/>`;
+  if (kind === "circuit") {
+    return `<defs>${markClipDef(id + "-c")}</defs>${base}` + pulseMarkup(id + "-c", th.accent, "run", 0.16);
+  }
+  if (kind === "rotor") {
+    return base + RINGS.map((r) => `<circle class="rotor" cx="${r.x}" cy="${r.y}" r="70" fill="none" style="stroke:${th.accent}" stroke-width="28" pathLength="1" stroke-dasharray="0.22 0.28"/>`).join("");
+  }
+  if (kind === "handshake") {
+    const clips = RINGS.map((r, i) => `<clipPath id="${id}-r${i}"><circle cx="${r.x}" cy="${r.y}" r="92"/></clipPath>`).join("");
+    const lights = RINGS.map((r, i) => `<g class="hr" clip-path="url(#${id}-r${i})" opacity="0"><path d="${MARK}" fill-rule="evenodd" style="fill:${th.accent}"/></g>`).join("");
+    return `<defs>${clips}${etchMaskDef(id + "-m", false)}</defs>${base}<g class="hs">${lights}<path class="ht" d="${MARK}" fill-rule="evenodd" style="fill:${th.accent}" mask="url(#${id}-m)"/>${pingsMarkup(th)}</g>`;
+  }
+  return `<defs>${markClipDef(id + "-c")}<clipPath id="${id}-f"><rect class="fillrect" x="250" y="1163" width="520" height="0"/></clipPath></defs>${base}`
+    + `<g clip-path="url(#${id}-f)"><path d="${MARK}" fill-rule="evenodd" style="fill:${th.accent}"/></g>`
+    + `<g clip-path="url(#${id}-c)"><rect class="edge" x="250" y="1163" width="520" height="10" style="fill:${th.edge}" opacity="0"/></g>`;
+}
+
+const LOOP_MS = { circuit: 2400, rotor: 1200, handshake: 3000 };
+
+function animateLoader(kind, svg, tl) {
+  const T = LOOP_MS[kind];
+  const loop = (el, kf, extra = {}) => tl.add(el, kf, { duration: T, iterations: Infinity, easing: "linear", ...extra });
+  if (kind === "circuit") {
+    const [a, b] = $$(svg, ".run");
+    loop(a, [{ strokeDashoffset: 0.16, easing: EASE.inOut }, { strokeDashoffset: -1, offset: 0.5 }, { strokeDashoffset: -1 }]);
+    loop(b, [{ strokeDashoffset: 0.16 }, { strokeDashoffset: 0.16, offset: 0.5, easing: EASE.inOut }, { strokeDashoffset: -1 }]);
+  } else if (kind === "rotor") {
+    $$(svg, ".rotor").forEach((el, i) => loop(el, [{ transform: "rotate(0deg)" }, { transform: `rotate(${RINGS[i].dir * 360}deg)` }], { delay: -i * 170 }));
+  } else if (kind === "handshake") {
+    animateHandshake(svg, loop);
+  }
+}
+
+function animateHandshake(svg, loop) {
+  const STEP = 0.09;
+  $$(svg, ".hr").forEach((el, i) => loop(el, [{ opacity: 0 }, { opacity: 0, offset: i * STEP }, { opacity: 1, offset: i * STEP + 0.05, easing: EASE.quartOut }, { opacity: 1 }]));
+  $$(svg, ".ping").forEach((el, i) => loop(el, [{ transform: "scale(1)", opacity: 0 }, { transform: "scale(1)", opacity: 0, offset: i * STEP }, { opacity: 0.9, offset: i * STEP + 0.02, easing: EASE.expoOut }, { transform: "scale(2)", opacity: 0, offset: i * STEP + 0.3 }, { transform: "scale(2)", opacity: 0 }]));
+  $$(svg, ".m-trace").forEach((el) => loop(el, [{ strokeDashoffset: 1 }, { strokeDashoffset: 1, offset: 0.38, easing: EASE.expoOut }, { strokeDashoffset: 0, offset: 0.62 }, { strokeDashoffset: 0 }]));
+  loop(svg.querySelector(".hs"), [{ opacity: 1 }, { opacity: 1, offset: 0.78, easing: EASE.inOut }, { opacity: 0, offset: 0.92 }, { opacity: 0 }]);
+}
+
+function buildLoaderPanels(card) {
+  const kind = card.dataset.loader;
+  const panels = card.querySelector(".loader-panels");
+  const tl = new Timeline();
+  const pcts = [];
+  const fills = [];
+  ["dark", "light"].forEach((mode) => {
+    const th = LOGO;
+    const panel = document.createElement("div");
+    panel.className = `lp ${mode}`;
+    panel.innerHTML = `<span class="mono tag">${mode}</span>`;
+    [96, 40].forEach((size) => {
+      const tile = document.createElement("div");
+      tile.className = `tile s${size}`;
+      const svg = svgEl(LOADER_VB, loaderMarkup(kind, th, uid("ld")), "ld");
+      svg.setAttribute("role", "img");
+      svg.removeAttribute("aria-hidden");
+      svg.setAttribute("aria-label", `IXEAN ${kind} loader, ${size} pixels`);
+      tile.append(svg);
+      const label = document.createElement("span");
+      label.className = kind === "progress" ? "pct" : "sz";
+      label.textContent = kind === "progress" ? "0%" : `${size}px`;
+      tile.append(label);
+      panel.append(tile);
+      if (kind === "progress") { pcts.push(label); fills.push(svg); }
+      else if (REDUCED) tl.add(svg.querySelector(".base"), [{ opacity: 0.25 }, { opacity: 0.9 }], { duration: 1400, iterations: Infinity, direction: "alternate", easing: EASE.inOut });
+      else animateLoader(kind, svg, tl);
+    });
+    panels.append(panel);
+  });
+  if (REDUCED && kind !== "progress") $$(panels, ".run, .rotor, .hs").forEach((el) => { el.style.display = "none"; });
+  return { tl, pcts, fills };
+}
+
+/* Determinate demo: eased 0→100 over FILL_MS, hold, reset. Driven per frame so it reads real values. */
+const FILL_MS = 2800;
+const FILL_HOLD_MS = 900;
+const MARK_TOP = 269;
+const MARK_BOTTOM = 1163;
+function fillProgress(t) {
+  const u = t % (FILL_MS + FILL_HOLD_MS);
+  if (u >= FILL_MS) return 1;
+  const x = u / FILL_MS;
+  return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+}
+
+function runFill({ pcts, fills }) {
+  let raf = 0;
+  let origin = 0;
+  let elapsed = 0;
+  const h = MARK_BOTTOM - MARK_TOP;
+  const draw = (now) => {
+    elapsed = now - origin;
+    const p = fillProgress(elapsed);
+    const y = MARK_BOTTOM - p * h;
+    fills.forEach((svg) => {
+      const r = svg.querySelector(".fillrect");
+      r.setAttribute("y", y);
+      r.setAttribute("height", MARK_BOTTOM - y);
+      const edge = svg.querySelector(".edge");
+      edge.setAttribute("y", y - 5);
+      edge.setAttribute("opacity", p > 0 && p < 1 ? 0.95 : 0);
+    });
+    pcts.forEach((el) => { el.textContent = `${Math.round(p * 100)}%`; });
+    raf = requestAnimationFrame(draw);
+  };
+  return {
+    start() { if (!raf) { origin = performance.now() - elapsed; raf = requestAnimationFrame(draw); } },
+    stop() { cancelAnimationFrame(raf); raf = 0; },
+  };
+}
+
+function mountLoader(card) {
+  const built = buildLoaderPanels(card);
+  built.tl.pauseLoops();
+  const fill = card.dataset.loader === "progress" ? runFill(built) : null;
+  const io = new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting) { built.tl.playLoops(); fill?.start(); }
+    else { built.tl.pauseLoops(); fill?.stop(); }
+  }, { threshold: 0.1 });
+  io.observe(card);
+}
+
+/* ---------------------------------------------------------------- theme + logo preferences */
+
+const PREF_KEYS = { theme: "ixean-theme", logo: "ixean-logo" };
+
+function readPref(key) {
+  try { return localStorage.getItem(PREF_KEYS[key]); } catch { return null; }
+}
+
+function savePref(key, value) {
+  /* Storage can be blocked (private mode, strict settings); the choice then lasts for this visit only. */
+  try { localStorage.setItem(PREF_KEYS[key], value); } catch { /* Not persisted; the in-page state is already applied. */ }
+}
+
+function mountPrefs() {
+  const root = document.documentElement;
+  const sync = () => {
+    $$(document, "[data-set-theme]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.setTheme === root.dataset.theme)));
+    $$(document, "[data-set-logo]").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.setLogo === root.dataset.logo)));
+  };
+  $$(document, "[data-set-theme]").forEach((b) => b.addEventListener("click", () => {
+    root.dataset.theme = b.dataset.setTheme;
+    savePref("theme", b.dataset.setTheme);
+    sync();
+  }));
+  $$(document, "[data-set-logo]").forEach((b) => b.addEventListener("click", () => {
+    root.dataset.logo = b.dataset.setLogo;
+    savePref("logo", b.dataset.setLogo);
+    sync();
+  }));
+  window.matchMedia("(prefers-color-scheme: light)").addEventListener("change", (e) => {
+    if (readPref("theme")) return;
+    root.dataset.theme = e.matches ? "light" : "dark";
+    sync();
+  });
+  sync();
+}
+
+/* ---------------------------------------------------------------- boot */
+
+mountPrefs();
+
+$$(document, "[data-stage]").forEach(mountStage);
+$$(document, "[data-loader]").forEach(mountLoader);
+mountNav();
+mountScrolly();
+</script>
+</body>
+</html>

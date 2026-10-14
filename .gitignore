@@ -1,0 +1,37 @@
+# Secrets and local environment (Cloudflare deploy token, account ID)
+.env
+.env.*
+*.pem
+*.key
+
+# Deploy / tooling state
+.wrangler/
+node_modules/
+dist/
+
+# OS junk
+.DS_Store
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Editors
+.vscode/
+.idea/
+.cursor/
+*.swp
+*~
+
+# Photoshop / Illustrator temp and recovery files
+*.psb.tmp
+*.psd.tmp
+~*.psd
+*.ai.tmp
+PSAutoRecover/
+
+# Local backups made before large rewrites
+*.bak
+*.orig
+*.tmp
